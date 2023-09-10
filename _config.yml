@@ -33,83 +33,210 @@ additional_links:
 about_title: About Me
 about_profile_image: images/seokhee.jpeg
 about_content: | # this will include new lines to allow paragraphs
-  백엔드 개발자로 일하고 있는 이석희 입니다. 개발자가 성장할 수 있는 개발문화에 관심이 많습니다.
-  대용량 트래픽 처리와, 개발자의 실수 없이 개발할 수 있도록 개발하는 것에 관심이 많은 개발자입니다.
+  백엔드 개발자로 일하고 있는 이석희 입니다. 
+  - 말이 많은 개발자입니다. 동료들과 커뮤니케이션을 하며 개발 얘기도 하고, 일상 얘기도 하는 것을 좋아합니다  
+  - 개발자가 성장할 수 있는 개발문화에 관심이 많습니다
+  - 대용량 트래픽 처리와, 개발자의 실수 없이 개발할 수 있도록 설계하는 것에 관심이 많습니다
+  - 불편한 것을 참지 못합니다. 이를 해결하기 위한 방법을 고민하는 것을 좋아합니다
 
   주 스킬
   - <mark>Java</mark>
-  - <mark>Spring Boot</mark>, <mark>Junit</mark>, <mark>Spring REST Docs</mark>, <mark>Spring Data JPA</mark>
-  - <mark>Oracle</mark>, <mark>MongoDB</mark>, <mark>Memcached</mark>, <mark>Redis</mark>  
+  - <mark>Spring Boot</mark> <mark>Junit</mark> <mark>Spring REST Docs</mark> <mark>Spring Data JPA</mark> <mark>Spring Cloud</mark>
+  - <mark>Oracle</mark> <mark>MongoDB</mark> <mark>Memcached</mark> <mark>Redis</mark>  
 
 content:
-  - title: Experience # Title for the section
+  - title: Career # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
         title: Tving
         caption: 2022.03 ~ 현재
         sub_title: Backend Developer
-#        quote: >
-#          개발자 문화 개선, 신규 프로젝트 제안 및 개발, 서비스 운영
+        quote: >
+          회원 서비스 개발
         description: | # this will include new lines to allow paragraphs 
           - 개발 문화 개선 
-          - 프로젝트가 끝나면 진행하는 코드리뷰를, MR 단위로 하는 것으로 제안하고 도입하였습니다. 
-          - Test Code의 활용 방법을 공유하며, 팀원들이 Test Code를 작성 할 수 있도록 독려하였습니다.
-          
-          - legacy 코드를 운영하며 불편한 점을 개선하기 위한 신규 프로젝트 개발 
-          - legecy framework를 개선하기 위하여, 신규 프로젝트 구성, 컨벤션, 개발 전반을 수행했습니다. 
-          - 인증이 여러 프로젝트에 분리되어 있는 불편함이 있어, 인증 프로젝트를 설계 및 개발하여 티빙의 인증을 하나의 서비스로 제공하였습니다.
+          - AWS Proserve를 진행하며, 서비스의 Cloud화 진행
+          - legecy framework를 개선하기 위하여, 신규 프로젝트 구성, 컨벤션, 개발 전반을 수행
+          - 대용량 트래픽에 대응하기 위한, 서비스 개선 진행
+          - <mark>Java</mark> <mark>Spring Boot</mark> <mark>Junit</mark> <mark>Redis</mark> <mark>Spring Data JPA</mark> <mark>Microservice Architecture</mark> <mark>MongoDB</mark> <mark>Oracle</mark> <mark>Spring Cloud</mark>
 
       - layout: left
         title: 신한카드
         caption: 2019.01 ~ 2022.03
         sub_title: Backend Developer
-#        quote: >
-
+        quote: >
+          챗봇 서비스 개발
         description: | # this will include new lines to allow paragraphs 
           - 신한카드 채널을 통한 고객 상담 서비스 챗봇 운영
           - MSA 구조의 서비스 운영 및 개발
+          - <mark>Java</mark> <mark>Spring Boot</mark> <mark>Spring Data JPA</mark> <mark>Microservice Architecture</mark> <mark>MongoDB</mark> <mark>Elastic Stack</mark> <mark>Spring Cloud</mark>
 
 
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: The Boring Company
-        link: boringcompany.com
-        # link_text: boringcompany.com
-        sub_title: Senior Network System Administrator
-        caption: November 2017 - Present
+        title: AWS Proserve
+        caption: 2023.04 ~ 2023.07
         quote: >
-          Solving 21st century problems by diging holes and making game changing products like the *not a flamethrower*
+          서비스들의 Cloud화 진행 및 모던 아키텍쳐 도입
         description: | # this will include new lines to allow paragraphs
-            Every company needs its networks properly administered and The Boring Compay is no exception. Digging holes is hard and I play my part making sure the whole company stays connected. I lead a team of 5 people and enjoy driving the company to try new technologies.
+          - AWS Cloud 서비스 도입 (ecs, ec2, AWS Secrets Manager 등)
+          - log 정비를 통한 전사 서비스 로그 포맷 일원화
+          - 성능 테스트를 통하여 필요한 서비스 자원 사전 확보(locust 활용)
+            - SLO 정의(P99, TPS, Median 값) 및 SLI 측정으로 서비스 자원 확보에 대한 필요값 정의.
+            - Application logic 개발 뿐 아니라 DB 환경 설정, 네트워크 페일오버 상황에 대한 대비, cpu 및 memory관리, DNS lookup cache등 다양한 인프라 관리 포인트 확인
+          - 모던 아키텍쳐의 도입 (DDD를 지향하는 개발 시작)
+
+      - layout: left
+        title: 인증 서비스 개발
+        caption: 2022.10 ~ 현재
+        quote: >
+          인증의 중앙화
+        description: | # this will include new lines to allow paragraphs
+          - 도입 전
+            - 기존의 서비스는 세션이라는 개념이 없고, 고객 여부만을 판단할 수 있었음
+            - 각각의 monolithic 프로젝트 및 앱 자체에서도 인증 로직을 중복으로 관리하여 보안상 이슈에 대응이 힘듦
+          - 도입 후
+            - 세션 관리가 되어 전체 로그아웃 등의 계정 관리를 할 수 있게 됨
+            - 인증서비스를 하나의 프로젝트로 분리하고 Gateway를 통하여 인증 일원화  
+          - <티빙 인증서비스 개발기, 근데 이제 레디스를 곁들인> 라는 주제로 티빙 DevDay(사내 개발자 컨퍼런스) 발표 진행
+
+      - layout: left
+        title: 게이트웨이 서비스 개발
+        caption: 2022.10 ~ 2023.06
+        quote: >
+          인증서비스 도입 및 API 라우팅 관리
+        description: | # this will include new lines to allow paragraphs
+          - 도입 전
+            - 인증서비스를 도입 하기 위하여, 각 서비스로 통하는 하나의 통로가 필요해 짐
+          - 도입 후
+            - 인증 필터를 개발하여 인증이 필요한 API, 필요 없는 API를 구분하여 서비스를 제공
+            - 게이트웨이를 도입함으로써, APP에서 API 주소 변경 없이 API 라우팅 주소 관리 및 version 관리가 가능
+
+      - layout: left
+        title: 신규 회원 프로젝트 개발
+        caption: 2022.06 ~ 현재
+        quote: >
+          Monolithic 아키텍쳐의 MSA화 시작
+        description: | # this will include new lines to allow paragraphs
+          - 도입 전
+            - Module간 의존성이 있는 Monolithic 아키텍쳐 구성
+            - Java 6 및 Spring Framework 3버전 등 노후화된 서비스 버전으로 인한 신규 개발의 장벽
+            - Oracle Procedure로 개발되어 있는 서비스로 인한, Oracle 의존성 높음
+          - 도입 후
+            - MSA 아키텍쳐 설계로 module간 의존성 분리 및 서비스 확장에 용의
+            - Java 11 및 Spring Boot Framework 도입으로 code refactoring 진행 및 테스트 코드 작성 시작
+            - Spring Date JPA 를 도입하여 Oracle 의존성을 끊어냄
+
+      - layout: left
+        title: 공통 기반 서비스 개발
+        quote: >
+          MSA 서비스를 개발하는 과정에서, 팀 내 다양한 convention을 수용할 수 있는 Library를 개발
+        description: | # this will include new lines to allow paragraphs
+          - 공통 EnumConverter 개발
+            - 인터페이스 및 추상클래스 활용한 공통 AttributeConverter - Spring Data JPA를 활용한 Entity 의 Enum 필드 converter 개발
+          - Logging filter 개발
+            - API Servlet Filter, Feign Logging Filter, Repository Logging Filter 등을 개발하여 환경변수로 log on/off 를 할 수 있도록 개발
+          - 공통 Exception 개발
+            - 공통 응답문 포맷에 활용 될 수 있도록 Exception Builder를 개발하여, http status, code custom 및 다국어 처리가 가능한 message 전달 가능하도록 개발 
+
+      - layout: left
+        title: 데이터 비교 및 이관 서비스 개발
+        caption: 2021.08 ~ 2022.02
+        quote: >
+          운영의 불편함을 해소하기 위한 서비스 개발
+        description: | # this will include new lines to allow paragraphs
+          - 도입 전
+            - 챗봇 운영을 위한 응답문 Data 배포 과정이 환경별 수동으로 진행되어 오랜 시간이 걸림
+            - 응답문 Data 이관시 누락건 발생
+          - 도입 후
+            - 응답문 Data 이관 서비스 개발
+            - 2~3개월에 한번 꼴로 발생하던 Data 이관시 누락되는 건 해결
+            - 데이터 비교 및 수정에 걸리는 시간 단축
+            - <mark>React</mark>를 활용한 Admin 화면 개발
+
+      - layout: left
+        title: ElasticSearch index 관리용 Admin 서비스 개발
+        caption: 2021.04 ~ 2021.05
+        quote: >
+          ElasticSearch를 챗봇의 NLU로 활용 할 수 있는 연동 서비스 개발.
+        description: | # this will include new lines to allow paragraphs
+          - ElasticSearch 학습 문장 관리 API 개발
+          - ElasticSearch 활용 의도분류 API 개발
+
+      - layout: left
+        title: 챗봇 서비스 운영 및 개발
+        caption: 2019.01 ~ 2022.02
+        quote: >
+          챗봇 서비스 개발 및 운영
+        description: | # this will include new lines to allow paragraphs
+          - 신한은행 챗봇 연동 딥링크
+            - 신한은행 이용자가 마지막으로 질문한 내용을 신한카드 챗봇에서 바로 이어 할 수 있는 동적 딥링크 기획 및 개발
+          - 비로그인 서비스
+            - 로그인을 해야만 이용 가능 했던 챗봇을 비로그인 이용자도 이용할 수 있도록 기획 및 개발
+          - 채널확장
+            - 결제앱 에서만 이용 가능 했던 챗봇의 채널 확장(홈페이지 앱, 웹) 기획 및 개발
+          - 개인화 인터페이스 개발
+            - 계정계 시스템 연동 인터페이스 설계 및 개발
+
+  - title: Experience # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        title: 개발문화 개선
+        quote: >
+          개발자가 성장할 수 있는 개발 문화 도입
+        description: | # this will include new lines to allow paragraphs
+          - 프로젝트가 끝나면 진행하는 코드리뷰를, MR 단위로 하는 것으로 제안하고 도입
+          - Test Code의 활용 방법을 공유하며, 팀원들이 Test Code를 작성 할 수 있도록 독려 
+            - Test Coverage 90% 이상 유지
+            - restdocs-api-spec 라이브러리를 활용하여 Spring Rest Doc 작성
+          - Coding Convention 및 Layer Convention 등을 정의하여 서로 다른 개발자들의 하나의 포맷으로 개발 할 수 있도록 장려
+            - 코드리뷰를 통해 개발자 모두가 convention에 대한 숙지 및 이해가 될 수 있도록 진행 
+
+      - layout: left
+        title: 대용량 요청 처리를 위한 개발
+        quote: >
+          대용량 요청이 들어오는 경우에 생기는 문제를 해결
+        description: | # this will include new lines to allow paragraphs
+          - Http connection pool 도입
+            - 특정 api call의 duration이 높아 was thread를 다 활용 하여서 처리하지 못하여 api별 pool 제한을 걸어둠으로써 특정 서비스 호출로 인한 서비스 중단 방어
+          - 동시성 문제 해결
+            - 요청에 대한 유실을 막기 위하여, DB insert/upsert과정에서 생기는 error를 Spring Retry library를 활용하여 유실 방지
+            - 필요한 경우 DB Lock을 걸어 동시성 문제 해결
+
+      - layout: left
+        title: 휴면 에러가 없는 코드 작성
+        quote: >
+          "아무리 뛰어난 개발자라도, 실수는 할 수 있다"라는 생각
+        description: | # this will include new lines to allow paragraphs
+          - Cache 생명주기 관리
+            - EntityListener를 활용하여 Entity의 값이 변경되는 경우 자동으로 관련된 Cache를 삭제하도록 개발. EntityListener를 활용하는 경우 Transaction의 마지막에 진행되나, commit 전에 진행되어 DB와의 동기화가 확실하지 않는 경우를 확인하여, TransactionSynchronizationManager 를 활용하여 commit 시점 이후에 cache가 삭제 되도록 관리
+          - Cache 버전 관리 
+            - cache의 필드값을 변경하는 경우 기존에 적재된 cache를 읽어오며 역직렬화 과정에서 error가 발생하는 경우가 생김. 이를 해결하기 위하여 class의 field를 이용하여 Hash값을 keyspace로 생성하여 cache의 필드가 변경된 경우 keyspace가 자동으로 달라지게 함.(기존의 cache는 TTL로 인한 만료)
+          
 
   - title: Education # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: Harvard University
-        caption: 2010 - 2013
-        sub_title: BSc Computer Science
-        quote: >
-          Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
+        title: 숭실대학교
+        caption: 2011 - 2018
+        sub_title: 정보통신전자공학부 IT융합전공
         description: | # this will include new lines to allow paragraphs
-          During my time at Harvard I learnt most of my key skills that have I have taken through my career such as teamwork and working to tight deadlines. I thouroughly enjoyed my time as university and learnt a lot about a healthy work life balance.
-
-          I spent a lot of my free time as a committee member of the *Harvard Mountaineering Club* taking on roles such as *Trip Secretary* and *Vice-President*.
+          학우들과 함께 진행하는 프로젝트에 관심이 많아 자료구조 조교, 교내 캡스톤디자인 경진대회 장려상 수상, 2017 ACM-ICPC 교내 16등(전체 약 40여개 팀) 등 다양한 경험을 하며 지냈습니다.
 
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
-      Alongside my interests in networks and software engineering some of my other interests and hobbies are:
-      - Rock climbing
-      - Gaming
-      - Knitting
-      - [Becoming a ninja](https://www.youtube.com/watch?v=vtg4o__aRMg)
+      - 1일 1알고리즘 풀기 챌린지(레벨 2에서는 더 이상 풀 문제가 없어서 잠시 쉬는 중)를 하여 2023년 9월 11일 기준 프로그래머스 알고리즘 테스트 순위 790위 입니다
+      - 개발하는 것을 좋아하여 한창 집중 할 때에는 꿈을 꾸면서도 프로젝트 설계를 하고 아침에 "유레카" 를 외치며 일어날 때 뿌듯해 합니다
+      - 같은 백엔드 개발자인 와이프와 함께 개발에 관하여 이야기 하는 것을 좋아합니다.(와이프가 좋아하지는 않는 것 같습니다)
+      - 책읽는 것을 좋아하지만, 잘 읽지 않는 게으른 저를 위해 최근에 태블릿 거치대(태블릿 거치대 짱입니다 신세계)를 구매하여 침대맡에 두고 하루 최소 1페이지 읽기 챌린지를 진행중입니다 
+      - 스킨스쿠버(장비 다있음), 캠핑(장비 다있음) 및 여행 등 밖으로 돌아다니는 활동도 좋아합니다. (장비빨 최고)
 
-      Look at this cool image  
-      ![Trees](/modern-resume-theme/images/landscape-trees.jpg "Trees")
 
 # Footer
 footer_show_references: true
