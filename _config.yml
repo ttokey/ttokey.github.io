@@ -15,28 +15,13 @@ website: https://ttokey.github.io/
 darkmode: false
 
 # Social links
-#twitter_username: facespics
 github_username: ttokey
-# stackoverflow_username: "00000001"
-# dribbble_username: jekyll
-# facebook_username: jekyll
-# flickr_username: jekyll
-#instagram_username: jameswgrant
 linkedin_username: ttokey
-# xing_username: jekyll
-# pinterest_username: jekyll
-#youtube_username: globalmtb
-# googleplus_username: +jekyll
-# orcid_username: 0000-0000-0000-0000
-
-# Additional icon links
-#additional_links:
-#- title: itsgoingto.be
-#  icon: fas fa-globe
-#  url: https://www.itsgoingto.be
-# - title: another link
-#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
-#   url: Link url (eg. https://google.com)
+ Additional icon links
+additional_links:
+- title: 블로그
+  icon: fas fa-blog
+  url: https://velog.io/@ttokey
 
 # Google Analytics and Tag Manager
 # Using more than one of these may cause issues with reporting
@@ -45,34 +30,48 @@ linkedin_username: ttokey
 # google_analytics: "UA-00000000-0"
 
 # About Section
-# about_title: About Me
-about_profile_image: images/profile.jpg
+about_title: About Me
+about_profile_image: images/seokhee.jpeg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, my name's Brett and I'm a senior network system administrator. As well as administrating systems I also have experience making software and web apps. I have worked at a number of companies gaining teamwork and leadership skills.
+  백엔드 개발자로 일하고 있는 이석희 입니다. 개발자가 성장할 수 있는 개발문화에 관심이 많습니다.
+  대용량 트래픽 처리와, 개발자의 실수 없이 개발할 수 있도록 개발하는 것에 관심이 많은 개발자입니다.
 
-  I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
+  주 스킬
+  - <mark>Java</mark>
+  - <mark>Spring Boot</mark>, <mark>Junit</mark>, <mark>Spring REST Docs</mark>, <mark>Spring Data JPA</mark>
+  - <mark>Oracle</mark>, <mark>MongoDB</mark>, <mark>Memcached</mark>, <mark>Redis</mark>  
 
 content:
-  - title: Projects # Title for the section
+  - title: Experience # Title for the section
     layout: list # Type of content section (list/text)
     content:
-      - layout: top-middle
-        title: Super awesome project
-        link: github.com/sproogen
-        # link_text: Project Website
-        additional_links:
-          - title:  sproogen/modern-resume-theme
-            icon: fab fa-github
-            url: github.com/sproogen/modern-resume-theme
-          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
-          #   icon: fab fa-github
-          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-        quote: >
-          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
-        description: | # this will include new lines to allow paragraphs
-          I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+      - layout: left
+        title: Tving
+        caption: 2022.03 ~ 현재
+        sub_title: Backend Developer
+#        quote: >
+#          개발자 문화 개선, 신규 프로젝트 제안 및 개발, 서비스 운영
+        description: | # this will include new lines to allow paragraphs 
+          - 개발 문화 개선 
+          - 프로젝트가 끝나면 진행하는 코드리뷰를, MR 단위로 하는 것으로 제안하고 도입하였습니다. 
+          - Test Code의 활용 방법을 공유하며, 팀원들이 Test Code를 작성 할 수 있도록 독려하였습니다.
+          
+          - legacy 코드를 운영하며 불편한 점을 개선하기 위한 신규 프로젝트 개발 
+          - legecy framework를 개선하기 위하여, 신규 프로젝트 구성, 컨벤션, 개발 전반을 수행했습니다. 
+          - 인증이 여러 프로젝트에 분리되어 있는 불편함이 있어, 인증 프로젝트를 설계 및 개발하여 티빙의 인증을 하나의 서비스로 제공하였습니다.
 
-  - title: Experience # Title for the section
+      - layout: left
+        title: 신한카드
+        caption: 2019.01 ~ 2022.03
+        sub_title: Backend Developer
+#        quote: >
+
+        description: | # this will include new lines to allow paragraphs 
+          - 신한카드 채널을 통한 고객 상담 서비스 챗봇 운영
+          - MSA 구조의 서비스 운영 및 개발
+
+
+  - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
