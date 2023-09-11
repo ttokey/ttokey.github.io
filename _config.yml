@@ -17,7 +17,7 @@ darkmode: false
 # Social links
 github_username: ttokey
 linkedin_username: ttokey
- Additional icon links
+# Additional icon links
 additional_links:
 - title: 블로그
   icon: fas fa-blog
