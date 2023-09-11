@@ -76,6 +76,10 @@ content:
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
+      - layout: top-middle
+        title: Tving
+        caption: 2022.03 ~ 현재
+
       - layout: left
         title: AWS Proserve
         caption: 2023.04 ~ 2023.07
@@ -141,6 +145,10 @@ content:
             - API Servlet Filter, Feign Logging Filter, Repository Logging Filter 등을 개발하여 환경변수로 log on/off 를 할 수 있도록 개발
           - 공통 Exception 개발
             - 공통 응답문 포맷에 활용 될 수 있도록 Exception Builder를 개발하여, http status, code custom 및 다국어 처리가 가능한 message 전달 가능하도록 개발 
+
+      - layout: top-middle
+        title: 신한카드
+        caption: 2022.03 ~ 현재
 
       - layout: left
         title: 데이터 비교 및 이관 서비스 개발
