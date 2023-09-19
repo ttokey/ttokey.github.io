@@ -81,10 +81,10 @@ content:
         caption: 2022.03 ~ 현재
 
       - layout: left
-        title: AWS Proserve
+        title: 서비스 Cloud화 진행
         caption: 2023.04 ~ 2023.07
         quote: >
-          서비스들의 Cloud화 진행 및 모던 아키텍쳐 도입
+          AWS Proserve를 진행하며 서비스들의 Cloud화 진행 및 모던 아키텍쳐 도입
         description: | # this will include new lines to allow paragraphs
           - AWS Cloud 서비스 도입 (ecs, ec2, AWS Secrets Manager 등)
           - log 정비를 통한 전사 서비스 로그 포맷 일원화
@@ -214,6 +214,23 @@ content:
           - 동시성 문제 해결
             - 요청에 대한 유실을 막기 위하여, DB insert/upsert과정에서 생기는 error를 Spring Retry library를 활용하여 유실 방지
             - 필요한 경우 DB Lock을 걸어 동시성 문제 해결
+
+      - layout: left
+        title: Redis 활용하기
+        quote: >
+          Redis index, Redis Cluster failover configuration
+        description: | # this will include new lines to allow paragraphs
+          - Redis Secondary Index 도입 및 실패기
+            - 도입 이유
+              - redis를 활용하며 key 이외에 value를 활용하기 위하여 Redis Secondary Indexing 활용 및 도입 
+            - 도입 과정
+              - jmh를 통한 성능 index 사용 유무에 따른 성능 비교 하여(초당 300건 정도를 처리 할 수 있도록 성능 테스트 진행) 성능이 차이 나지 않음을 확인 및 개발 편의상 Secondary Indexing을 활용 하기로 결정 
+              - <티빙 인증서비스 개발기, 근데 이제 레디스를 곁들인> 라는 주제로 Redis Secondary Indexing의 동작 방식 및 활용 방법에 대하여 티빙 DevDay(사내 개발자 컨퍼런스) 발표 진행
+            - 문제 발생
+              - spring data redis 를 활용하여 secondary indexing 활용 시 keyspace event 를 통해 ttl 만료된 키 값을 관리하게 되는데, 서비스 사용량이 늘자 redis의 keyspace event 발행량이 늘어나며 connection timeout이 발생
+            - 결론
+              - ttl이 짧고, 많은 양의 key값이 generate 되는 서비스에서는 secondary indexing 사용 불가능. 다만, ttl 이 길고, 많은 양의 key 값 보다는 key값의 갯수가 적은 경우에 적극 활용하도록 함.
+            
 
       - layout: left
         title: 휴면 에러가 없는 코드 작성
