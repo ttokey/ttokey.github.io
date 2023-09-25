@@ -227,9 +227,10 @@ content:
               - jmh를 통한 성능 index 사용 유무에 따른 성능 비교 하여(초당 300건 정도를 처리 할 수 있도록 성능 테스트 진행) 성능이 차이 나지 않음을 확인 및 개발 편의상 Secondary Indexing을 활용 하기로 결정 
               - <티빙 인증서비스 개발기, 근데 이제 레디스를 곁들인> 라는 주제로 Redis Secondary Indexing의 동작 방식 및 활용 방법에 대하여 티빙 DevDay(사내 개발자 컨퍼런스) 발표 진행
             - 문제 발생
-              - spring data redis 를 활용하여 secondary indexing 활용 시 keyspace event 를 통해 ttl 만료된 키 값을 관리하게 되는데, 서비스 사용량이 늘자 redis의 keyspace event 발행량이 늘어나며 connection timeout이 발생
+              - spring data redis 를 활용하여 secondary indexing 활용 시 keyspace event 를 통해 ttl 만료된 키 값을 관리하게 되는데, 서비스 사용량이 늘자 redis의 keyspace event 발행량이 늘어나며 redis connection timeout이 발생
             - 결론
               - ttl이 짧고, 많은 양의 key값이 generate 되는 서비스에서는 secondary indexing 사용 불가능. 다만, ttl 이 길고, 많은 양의 key 값 보다는 key값의 갯수가 적은 경우에 적극 활용하도록 함.
+              - jmh를 통한 성능 테스트는 데이터의 삭제/생성에만 집중했지, ttl이 만료되는 상황에서의 성능테스트를 고려하지 못함. 
             
 
       - layout: left
