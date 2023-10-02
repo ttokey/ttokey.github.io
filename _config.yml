@@ -89,8 +89,6 @@ content:
           - AWS Cloud 서비스 도입 (ecs, ec2, AWS Secrets Manager 등)
           - log 정비를 통한 전사 서비스 로그 포맷 일원화
           - 성능 테스트를 통하여 필요한 서비스 자원 사전 확보(locust 활용)
-            - SLO 정의(P99, TPS, Median 값) 및 SLI 측정으로 서비스 자원 확보에 대한 필요값 정의.
-            - Application logic 개발 뿐 아니라 DB 환경 설정, 네트워크 페일오버 상황에 대한 대비, cpu 및 memory관리, DNS lookup cache등 다양한 인프라 관리 포인트 확인
           - 모던 아키텍쳐의 도입 (DDD를 지향하는 개발 시작)
 
       - layout: left
@@ -189,20 +187,28 @@ content:
           - 개인화 인터페이스 개발
             - 계정계 시스템 연동 인터페이스 설계 및 개발
 
+
+
   - title: Experience # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: 개발문화 개선
+        title: 성능테스트와 인프라
         quote: >
-          개발자가 성장할 수 있는 개발 문화 도입
+          AWS Proserver 팀과 성능테스트를 진행하며 겪은 경험
         description: | # this will include new lines to allow paragraphs
-          - 프로젝트가 끝나면 진행하는 코드리뷰를, MR 단위로 하는 것으로 제안하고 도입
-          - Test Code의 활용 방법을 공유하며, 팀원들이 Test Code를 작성 할 수 있도록 독려 
-            - Test Coverage 90% 이상 유지
-            - restdocs-api-spec 라이브러리를 활용하여 Spring Rest Doc 작성
-          - Coding Convention 및 Layer Convention 등을 정의하여 서로 다른 개발자들의 하나의 포맷으로 개발 할 수 있도록 장려
-            - 코드리뷰를 통해 개발자 모두가 convention에 대한 숙지 및 이해가 될 수 있도록 진행 
+          - 기존 방식
+            - tps 정도의 목표값을 정한 후 부하를 올리며 목적에 맞는 tps 도달하면 성능 테스트 성공
+          - 도입 방식
+            - SLO(서비스 수준 목표), SLI(서비스 수준 지표)를 정의하여 P99, TPS, Median 등의 다양한 지표값 선 정의
+            - 어플리케이션 테스트
+              - 통신 방법의 다각화(vpn 통신, public domain 통신)를 통하여 장애 발생 시 빠른 대응 및 선 검증 진행
+              - Cache server 이슈를 대응하기 위한 방어로직 개발
+            - 인프라 테스트
+              - 네트워크 페일오버 테스트, cpu 및 memory관리, DNS lookup cache 도입 등 다양한 인프라 관리 포인트 확인
+            - DB 테스트 
+              - DB 환경 설정(mongoDB readPreference, writeConcern 등) 변경에 따른 성능 테스트
+              - oracle connection pool 1개당 tps 30정도의 대응 시간을 갖추고 있는 것을 파악 후 SLO에 적합한 connection 수 산정
 
       - layout: left
         title: 대용량 요청 처리를 위한 개발
@@ -212,13 +218,18 @@ content:
           - Http connection pool 도입
             - 특정 api call의 duration이 높아 was thread를 다 활용 하여서 처리하지 못하여 api별 pool 제한을 걸어둠으로써 특정 서비스 호출로 인한 서비스 중단 방어
           - 동시성 문제 해결
-            - 요청에 대한 유실을 막기 위하여, DB insert/upsert과정에서 생기는 error를 Spring Retry library를 활용하여 유실 방지
-            - 필요한 경우 DB Lock을 걸어 동시성 문제 해결
+            - Spring JPA 도입 이후 save method를 통한 insert API의 경우 동시성 문제가 발생하기 시작 함
+            - 원인
+              - save method의 동작은 DB의 값이 없는 경우 insert, 값이 있는 경우 update query를 날리게 됨. 서로 다른 트랜잭션 시작점에 데이터가 없는 경우 둘다 insert요청을 날리면서 PK가 겹치는 상황이 발생함.
+            - 해결방안
+              - update를 진행 할 수 있도록 회원 가입 시 처음부터 data 생성로직 추가
+              - 필요한 경우 DB Lock을 통한 동시성 문제 해결
+              - 요청에 대한 유실을 막기 위하여, DB insert/upsert과정에서 생기는 error를 Spring Retry library를 활용하여 유실 방지
 
       - layout: left
         title: Redis 활용하기
         quote: >
-          Redis index, Redis Cluster failover configuration
+          Redis secondary index
         description: | # this will include new lines to allow paragraphs
           - Redis Secondary Index 도입 및 실패기
             - 도입 이유
@@ -230,8 +241,7 @@ content:
               - spring data redis 를 활용하여 secondary indexing 활용 시 keyspace event 를 통해 ttl 만료된 키 값을 관리하게 되는데, 서비스 사용량이 늘자 redis의 keyspace event 발행량이 늘어나며 redis connection timeout이 발생
             - 결론
               - ttl이 짧고, 많은 양의 key값이 generate 되는 서비스에서는 secondary indexing 사용 불가능. 다만, ttl 이 길고, 많은 양의 key 값 보다는 key값의 갯수가 적은 경우에 적극 활용하도록 함.
-              - jmh를 통한 성능 테스트는 데이터의 삭제/생성에만 집중했지, ttl이 만료되는 상황에서의 성능테스트를 고려하지 못함. 
-            
+              - jmh를 통한 성능 테스트는 데이터의 삭제/생성에만 집중했지, ttl이 만료되는 상황에서의 성능테스트를 고려하지 못함.
 
       - layout: left
         title: 휴면 에러가 없는 코드 작성
@@ -242,7 +252,20 @@ content:
             - EntityListener를 활용하여 Entity의 값이 변경되는 경우 자동으로 관련된 Cache를 삭제하도록 개발. EntityListener를 활용하는 경우 Transaction의 마지막에 진행되나, commit 전에 진행되어 DB와의 동기화가 확실하지 않는 경우를 확인하여, TransactionSynchronizationManager 를 활용하여 commit 시점 이후에 cache가 삭제 되도록 관리
           - Cache 버전 관리 
             - cache의 필드값을 변경하는 경우 기존에 적재된 cache를 읽어오며 역직렬화 과정에서 error가 발생하는 경우가 생김. 이를 해결하기 위하여 class의 field를 이용하여 Hash값을 keyspace로 생성하여 cache의 필드가 변경된 경우 keyspace가 자동으로 달라지게 함.(기존의 cache는 TTL로 인한 만료)
-          
+
+      - layout: left
+        title: 개발문화 개선
+        quote: >
+          개발자가 성장할 수 있는 개발 문화 도입
+        description: | # this will include new lines to allow paragraphs
+          - 프로젝트가 끝나면 진행하는 코드리뷰를, MR 단위로 하는 것으로 제안하고 도입
+          - Test Code의 활용 방법을 공유하며, 팀원들이 Test Code를 작성 할 수 있도록 독려 
+            - Test Coverage 90% 이상 유지
+            - restdocs-api-spec 라이브러리를 활용하여 Spring Rest Doc 작성
+          - Coding Convention 및 Layer Convention 등을 정의하여 서로 다른 개발자들의 하나의 포맷으로 개발 할 수 있도록 장려
+            - 코드리뷰를 통해 개발자 모두가 convention에 대한 숙지 및 이해가 될 수 있도록 진행           
+
+
 
   - title: Education # Title for the section
     layout: list # Type of content section (list/text)
@@ -254,6 +277,8 @@ content:
         description: | # this will include new lines to allow paragraphs
           학우들과 함께 진행하는 프로젝트에 관심이 많아 자료구조 조교, 교내 캡스톤디자인 경진대회 장려상 수상, 2017 ACM-ICPC 교내 16등(전체 약 40여개 팀) 등 다양한 경험을 하며 지냈습니다.
 
+
+
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
@@ -261,7 +286,7 @@ content:
       - 개발하는 것을 좋아하여 한창 집중 할 때에는 꿈을 꾸면서도 프로젝트 설계를 하고 아침에 "유레카" 를 외치며 일어날 때 뿌듯해 합니다
       - 같은 백엔드 개발자인 와이프와 함께 개발에 관하여 이야기 하는 것을 좋아합니다.(와이프가 좋아하지는 않는 것 같습니다)
       - 책읽는 것을 좋아하지만, 잘 읽지 않는 게으른 저를 위해 최근에 태블릿 거치대를 구매하여 침대맡에 두고 하루 최소 1페이지 읽기 챌린지를 진행중입니다 
-      - 스킨스쿠버(장비 다있음), 캠핑(장비 다있음) 및 여행 등 밖으로 돌아다니는 활동도 좋아합니다. (장비빨 최고)
+      - 스킨스쿠버, 캠핑 및 여행 등 밖으로 돌아다니는 활동도 좋아합니다. (장비빨 최고)
 
 
 # Footer
