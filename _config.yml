@@ -42,7 +42,7 @@ about_content: | # this will include new lines to allow paragraphs
   주 스킬
   - <mark>Java</mark>
   - <mark>Spring Boot</mark> <mark>Junit</mark> <mark>Spring REST Docs</mark> <mark>Spring Data JPA</mark> <mark>Spring Cloud</mark>
-  - <mark>Oracle</mark> <mark>MongoDB</mark> <mark>Memcached</mark> <mark>Redis</mark>  
+  - <mark>Oracle</mark> <mark>MongoDB</mark> <mark>Memcached</mark> <mark>Redis</mark>  <mark>Apache Kafka</mark>
 
 content:
   - title: Career # Title for the section
@@ -81,6 +81,22 @@ content:
         caption: 2022.03 ~ 현재
 
       - layout: left
+        title: 카프카 서비스 도입
+        caption: 2023.09 ~ 현재
+        quote: >
+          대용량 서비스 대응을 위한 변화과정
+        description: | # this will include new lines to allow paragraphs
+          - 도입 전
+            - 비동기 방식의 API 서비스가 점점 많아지기 시작함
+            - MSA방식으로 어플리케이션 설계가 변화하며 서비스간 통신 증가 및 DB 분리의 필요성이 생김
+          - 도입 후
+            - 비동기 방식의 API를 kafka를 통해 전달하기 시작함
+            - DB분리 진행
+          - 도입 과정
+            - consume 과정에서의 문제 발생시 해결을 위하여, republishing(topic에 재 발행) 및 DLT(Dead Letter Topic)개념을 도입하여 유실되는 요청이 없도록 개발
+            - 비동기 방식의 API를 카프카로 전달하는 과정에서 순서가 보장되어야 하는 로직에 대한 분석 및 대응
+          
+      - layout: left
         title: 서비스 Cloud화 진행
         caption: 2023.04 ~ 2023.07
         quote: >
@@ -89,7 +105,6 @@ content:
           - AWS Cloud 서비스 도입 (ecs, ec2, AWS Secrets Manager 등)
           - log 정비를 통한 전사 서비스 로그 포맷 일원화
           - 성능 테스트를 통하여 필요한 서비스 자원 사전 확보(locust 활용)
-          - 모던 아키텍쳐의 도입 (DDD를 지향하는 개발 시작)
 
       - layout: left
         title: 인증 서비스 개발
@@ -263,9 +278,11 @@ content:
             - Test Coverage 90% 이상 유지
             - restdocs-api-spec 라이브러리를 활용하여 Spring Rest Doc 작성
           - Coding Convention 및 Layer Convention 등을 정의하여 서로 다른 개발자들의 하나의 포맷으로 개발 할 수 있도록 장려
-            - 코드리뷰를 통해 개발자 모두가 convention에 대한 숙지 및 이해가 될 수 있도록 진행           
-
-
+            - 코드리뷰를 통해 개발자 모두가 convention에 대한 숙지 및 이해가 될 수 있도록 진행         
+          - AWS Proserve Application Architect와의 모던 아키텍쳐 컨퍼런스 진행
+            - AWS Proserve 대응 담당자로써, 업무를 진행하며 Application Architect와 대화를 하면 팀원들도 많은 발전이 생길 것 같다는 판단이 들어 컨퍼런스 요청
+            - DDD, TDD 등에 대한 설명과 함께 팀원들과 개발 컨벤션에 대한 정의 재구성 및 스터디 진행
+          
 
   - title: Education # Title for the section
     layout: list # Type of content section (list/text)
