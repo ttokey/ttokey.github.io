@@ -84,7 +84,7 @@ content:
         title: 카프카 서비스 도입
         caption: 2023.09 ~ 현재
         quote: >
-          대용량 서비스 대응을 위한 변화과정
+          대용량 트래픽 대응을 위한 변화과정
         description: | # this will include new lines to allow paragraphs
           - 도입 전
             - 비동기 방식의 API 서비스가 점점 많아지기 시작함
