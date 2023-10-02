@@ -59,7 +59,7 @@ content:
           - AWS Proserve를 진행하며, 서비스의 Cloud화 진행
           - legecy framework를 개선하기 위하여, 신규 프로젝트 구성, 컨벤션, 개발 전반을 수행
           - 대용량 트래픽에 대응하기 위한, 서비스 개선 진행
-          - <mark>Java</mark> <mark>Spring Boot</mark> <mark>Junit</mark> <mark>Redis</mark> <mark>Spring Data JPA</mark> <mark>Microservice Architecture</mark> <mark>MongoDB</mark> <mark>Oracle</mark> <mark>Spring Cloud</mark>
+          - <mark>Java</mark> <mark>Spring Boot</mark> <mark>Junit</mark> <mark>Redis</mark> <mark>Spring Data JPA</mark> <mark>Microservice Architecture</mark> <mark>MongoDB</mark> <mark>Oracle</mark> <mark>Spring Cloud</mark> <mark>Apache Kafka</mark>
 
       - layout: left
         title: 신한카드
