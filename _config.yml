@@ -123,7 +123,7 @@ content:
 
       - layout: left
         title: 인증 서비스 개발
-        caption: 2022.10 ~ 현재
+        caption: 2022.10 ~ 2024.02
         quote: >
           인증의 중앙화
         description: | # this will include new lines to allow paragraphs
@@ -149,7 +149,7 @@ content:
 
       - layout: left
         title: 신규 회원 프로젝트 개발
-        caption: 2022.06 ~ 현재
+        caption: 2022.06 ~ 2024.02
         quote: >
           Monolithic 아키텍쳐의 MSA화 시작
         description: | # this will include new lines to allow paragraphs
